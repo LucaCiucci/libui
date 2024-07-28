@@ -223,8 +223,9 @@ impl Window {
         unsafe {
             let c_title = CString::new(title.as_bytes().to_vec()).unwrap();
             let c_description = CString::new(description.as_bytes().to_vec()).unwrap();
-            libui_ffi::uiMsgBox(self.uiWindow, c_title.as_ptr(), c_description.as_ptr())
+            libui_ffi::uiMsgBox(self.uiWindow, c_title.as_ptr(), c_description.as_ptr());
         }
+        self.clone().show();
     }
 
     /// Open an error-themed message box to show a message to the user.
@@ -233,8 +234,9 @@ impl Window {
         unsafe {
             let c_title = CString::new(title.as_bytes().to_vec()).unwrap();
             let c_description = CString::new(description.as_bytes().to_vec()).unwrap();
-            libui_ffi::uiMsgBoxError(self.uiWindow, c_title.as_ptr(), c_description.as_ptr())
+            libui_ffi::uiMsgBoxError(self.uiWindow, c_title.as_ptr(), c_description.as_ptr());
         }
+        self.clone().show();
     }
 
     pub unsafe fn destroy_all_windows() {
