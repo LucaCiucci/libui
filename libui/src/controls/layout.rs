@@ -6,8 +6,10 @@ use std::os::raw::c_int;
 use libui_ffi::{self, uiAlign, uiAt, uiBox, uiControl, uiGrid, uiGroup, uiSeparator, uiTab};
 
 /// Defines the ways in which the children of boxes can be layed out.
+#[derive(Debug, Clone, Copy, Default, PartialEq, Eq, Hash)]
 pub enum LayoutStrategy {
     /// Make the control the minimum possible size to contain its content
+    #[default]
     Compact,
     /// Make the control expand to its maximum size
     Stretchy,

@@ -12,6 +12,7 @@ define_control! {
 }
 
 /// The possible selections the `DateTimePicker` shall offer.
+#[derive(Debug, Copy, Clone, PartialEq, Eq, Hash)]
 pub enum DateTimePickerKind {
     DateTime,
     Date,
